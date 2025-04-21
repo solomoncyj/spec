@@ -64,6 +64,10 @@ rm -rf ./thirdparty
 %cmake_install
 
 
+%check
+%ctest
+
+
 %files
 %{_bindir}/vvencFFapp
 %{_bindir}/vvencapp
