@@ -1,4 +1,4 @@
-%global forgeurl https://github.com/fraunhoferhhi/vvenc
+%global forgeurl0 https://github.com/fraunhoferhhi/vvenc
 Version: 1.13.1
 %global tag0 v%{version}
 
@@ -6,7 +6,7 @@ Version: 1.13.1
 
 Name:           vvenc
 Release:        %autorelease
-Summary:        VVenC, the Fraunhofer Versatile Video Encoder
+Summary:        The Fraunhofer Versatile Video Encoder
 
 License:        BSD-3-Clause-Clear
 URL:            %{forgeurl}
@@ -20,7 +20,7 @@ BuildRequires: g++ >= 5.0
 BuildRequires: simde-devel
 BuildRequires: json-devel
 
-Requires:%{name}-libs = %{version}
+Requires:%{name}-libs%{?_isa} = %{version}-%{release}
 
 
 %description
@@ -30,7 +30,8 @@ software H.266/VVC encoder implementation
 
 %package devel
 Summary: Header files for vvenc development
-Requires:%{name} = %{version}
+
+Requires:%{name}-libs%{?_isa} = %{version}-%{release}
 
 %description devel
 The vvenc-devel package contains the header files needed
@@ -56,12 +57,14 @@ rm -rf ./thirdparty
                 -DVVENC_ENABLE_THIRDPARTY_JSON=SYSTEM \
                 -DVVENC_ENABLE_LINK_TIME_OPT=ON \
                 -DVVENC_INSTALL_FULLFEATURE_APP=ON \
+                -DCMAKE_SKIP_INSTALL_RPATH=1
 
 %cmake_build
 
 
 %install
 %cmake_install
+
 
 
 %check
