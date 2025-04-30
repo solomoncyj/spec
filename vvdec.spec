@@ -15,11 +15,11 @@ Source:         %{forgesource}
 BuildRequires: cmake
 BuildRequires: ninja-build
 #ninja is faster
-BuildRequires: gcc >= 5.0
-BuildRequires: g++ >= 5.0
+BuildRequires: gcc
+BuildRequires: gcc-c++
 BuildRequires: simde-devel
 
-Requires:%{name}-libs%{?_isa} = %{version}-%{release}
+Requires: %{name}-libs%{?_isa} = %{version}-%{release}
 
 
 %description
@@ -30,7 +30,7 @@ software H.266/VVC encoder implementation
 %package devel
 Summary: Header files for vvdec development
 
-Requires:%{name}%{?_isa} = %{version}-%{release}
+Requires: %{name}%{?_isa} = %{version}-%{release}
 
 %description devel
 The vvdec-devel package contains the header files needed
