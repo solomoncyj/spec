@@ -6,7 +6,7 @@ Version: 3.0.0
 
 Name:           vvdec
 Release:        %autorelease
-Summary:        the Fraunhofer Versatile Video Decoder
+Summary:        The Fraunhofer Versatile Video Decoder
 
 License:        BSD-3-Clause-Clear
 URL:            %{forgeurl}
@@ -23,7 +23,7 @@ Requires:%{name}-libs%{?_isa} = %{version}-%{release}
 
 
 %description
-VVdenC, the Fraunhofer Versatile Video Encoder, is a fast and efficient
+VVdeC, the Fraunhofer Versatile Video Encoder, is a fast and efficient
 software H.266/VVC encoder implementation
 
 
